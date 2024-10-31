@@ -4,7 +4,28 @@ import java.util.List;
 public class ParenSymmetry {
 
     public Boolean isBalanced(String s) {
-        return null;
+
+        int countOpenPara = 0;
+        int countClosedPara = 0;
+        Boolean balanced;
+        for(int i=0;i<=s.length()-1;i++){
+
+           // if(s.substring(s.indexOf(",")).equals("("){
+            if(s.charAt(i) == '('){
+                countOpenPara++;
+            }
+            else if(s.charAt(i) == ')'){
+                countClosedPara++;
+            }
+
+        }
+        if(countOpenPara == countClosedPara){
+           balanced = true;
+        }
+        else {
+            balanced = false;
+        }
+       return balanced;
     }
 
     private void checkFile(String filename) {
@@ -24,14 +45,14 @@ public class ParenSymmetry {
         printResult(b0, true);
 
         String[] falseStrings = {"(", "((", ")", "", "(()())((())))"};
-        Boolean falses = true;
+        boolean falses = true;
         for (String strToTest : falseStrings) {
             falses = ps.isBalanced(strToTest);
         }
         printResult(falses, false);
 
         String[] trueStrings = {"()", "(())", "(((())))", "", "(()())((()))", "(   )", "( () ( ) )"};
-        Boolean trues = false;
+        boolean trues = false;
         for (String strToTest : trueStrings) {
             trues = ps.isBalanced(strToTest);
         }
