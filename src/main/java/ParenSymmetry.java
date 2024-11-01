@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class ParenSymmetry {
 
@@ -28,14 +31,30 @@ public class ParenSymmetry {
        return balanced;
     }
 
-    private void checkFile(String filename) {
+    public void checkFile(String filename) {
         // open file named filename
 
         // for each line in the file
-            // read the line
-            // print whether or not the line's parenthesis are balanced
+        // read the line
+        // print whether or not the line's parenthesis are balanced
 
         // CLOSE the file
+
+        try{
+            File myObj = new File(filename);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+                System.out.println(isBalanced(data));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+
+        }
+//return result;
+
     }
 
     public static void main(String[] args) {

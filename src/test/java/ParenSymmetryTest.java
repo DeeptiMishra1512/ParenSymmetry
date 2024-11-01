@@ -62,4 +62,13 @@ public class ParenSymmetryTest {
         }
     }
 
+
+@Test
+public void testFile() {
+    ParenSymmetry parent = new ParenSymmetry();
+   parent.checkFile("TestStrings0.txt");
+   //expected = {true,false,true,false,true,false,true};
+   // Assert.assertEquals(expected, actual);
+}
+
 }
